@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* outline: 1px solid red; */
+}
+
+body {
+  color: black;
+  background-color: white;
+  font-family: "Outfit", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  @apply w-1 bg-transparent;
+}
+
+body::-webkit-scrollbar-corner {
+  @apply bg-transparent;
+}
+
+body::-webkit-scrollbar-track {
+  @apply bg-white;
+}
+
+body::-webkit-scrollbar-track-piece {
+  @apply bg-transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  @apply transition-all duration-500 rounded-full bg-black/60 hover:bg-black/40;
+}
+
+html {
+  scrollbar-color: rgb(0, 0, 0, 0.4) rgb(0, 0, 0, 0);
+  scrollbar-width: thin;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+.animate-bounce {
+  animation: bounce 3s infinite;
+}
+
+.circular-box-shadow {
+  box-shadow: 0px 11px 20px -6px #57575726;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-700%);
+  }
+}
+
+.animate-alternate {
+  animation: move infinite alternate;
+  animation-duration: 5s;
+}
