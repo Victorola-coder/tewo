@@ -4,7 +4,7 @@ import { Button } from "./components";
 
 function App() {
   const [amount, setAmount] = useState<number>(30000);
-
+  const [showAccountDetails, setShowAccountDetails] = useState<boolean>(false);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setAmount(Number(value));
@@ -14,9 +14,13 @@ function App() {
     e.preventDefault();
   };
 
+  const handleShowDetails = () => {
+    setShowAccountDetails((prev) => !prev);
+  };
+
   return (
-    <main className="min-h-[100vh] flex flex-col items-center justify-center">
-      <div className="flex flex-col gap-[30px]  justify-center bg-white shadow-neutral-800 drop-shadow-lg rounded-[32px] min-w-[510px] p-[30px]">
+    <main className="animate-fade-in relative min-h-[100vh] flex flex-col items-center justify-center">
+      <div className="flex flex-col gap-[30px] justify-center bg-white shadow-neutral-800 drop-shadow-lg rounded-[32px] min-w-[510px] p-[30px]">
         <header>
           <h3 className="text-[#1D2329] font-semibold text-[24px]">
             Send Me Money
@@ -66,12 +70,40 @@ function App() {
         </div>
 
         {/* button */}
-        <Button>Send now</Button>
+        <Button onClick={!handleShowDetails}>Send now</Button>
+        {showAccountDetails && <AccountInfo />}
       </div>
     </main>
   );
 }
 
 export default App;
+// interface AccountInfoProps {
+//   onClick
 
-
+function AccountInfo() {
+  return (
+    <section className="absolute inset-0 animate-slide-up min-h-[100vh]- bg-slate-100 flex flex-col items-center justify-center">
+      <div className="flex flex-col gap-[30px] justify-center bg-white shadow-neutral-800 drop-shadow-lg rounded-[32px] min-w-[510px] p-[30px]">
+        <header className="mx-[30px] rounded-[12px] w-full ">
+          <figure>
+            <img
+              src="/bg.svg"
+              className="rounded-t-[12px] "
+              alt="styled
+  _bg"
+            />
+          </figure>
+          <figure>
+            <img
+              src="/icon.png"
+              alt="icon"
+              className="relative -top-10 left-2"
+              draggable={false}
+            />
+          </figure>
+        </header>
+      </div>
+    </section>
+  );
+}
