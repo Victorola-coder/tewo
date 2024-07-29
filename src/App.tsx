@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import clsx from "clsx";
-import { NGN } from "./svgs";
+import { Info, NGN } from "./svgs";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 function App() {
@@ -57,6 +57,17 @@ function App() {
             </select>
           </fieldset>
         </form>
+
+        {/* notice */}
+        <div className="bg-[#F6F2FF] flex flex-row items-center gap-1.5 rounded-[16px] p-[13px] w-full">
+          <Info />
+          <p className="text-[#586283] font-normal text-[14px] leading-[17.64px]">
+            Send me money abeg make I fit chop 🥺
+          </p>
+        </div>
+
+        {/* button */}
+        <Button>Send now</Button>
       </div>
     </main>
   );
@@ -77,7 +88,7 @@ function Button(props: ButtonProps) {
       onClick={onClick}
       disabled={loading || disabled}
       className={clsx(
-        "w-full bg-[#163300]  max-w-[386.1px] px-[14.18px] py-[10.51px] rounded-[2.1px] md:py-[30px] md:px-[65px] md:rounded-xl text-[25px] _xl:w-[664px] _xl:px-[97px] _xl:py-[85px] _xl:rounded-[20px] grid place-items-center text-white -tracking-[0.38px] font-normal text-center _xl:text-[70px] whitespace-nowrap _xl:leading-[55px] disabled:cursor-not-allowed disabled:bg-opacity-60 transition-all duration-300 active:scale-[0.97]",
+        "grid place-items-center rounded-[16px] shadow-three p-[21.5px] bg-[#FE7122] text-white font-semibold text-[16px] leading-[20.16x] disabled:cursor-not-allowed disabled:bg-opacity-60 transition-all duration-300 active:scale-[0.97]",
         className
       )}
       {...prop}
