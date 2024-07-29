@@ -55,6 +55,16 @@ export default {
         one: "0px 4px 4px -4px #0C0C0D0D",
         two: "0px 16px 16px -8px #0C0C0D1A",
       },
+
+      dropShadow: {
+        light: "0px 4px 4px -4px rgba(12, 12, 13, 0.05)",
+        dark: "0px 16px 16px -8px rgba(12, 12, 13, 0.10)",
+      },
+
+      boxShadow: {
+        one: "0px 4px 4px -4px rgba(12, 12, 13, 0.08)",
+        two: "0px 16px 16px -8px rgba(12, 12, 13, 0.10)",
+      },
     },
   },
   plugins: [],
