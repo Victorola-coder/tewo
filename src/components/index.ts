@@ -1,1 +1,2 @@
-// would move stuffs to component later, let the appw work first
+export { default as AccountInfo } from "./accountInfo";
+export { default as Button } from "./button";
