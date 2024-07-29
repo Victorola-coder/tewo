@@ -15,7 +15,7 @@ function App() {
   };
 
   const handleShowDetails = () => {
-    setShowAccountDetails((prev) => !prev);
+    setShowAccountDetails((prev) => prev);
   };
 
   return (
@@ -70,7 +70,7 @@ function App() {
         </div>
 
         {/* button */}
-        <Button onClick={!handleShowDetails}>Send now</Button>
+        <Button onClick={handleShowDetails}>Send now</Button>
         {showAccountDetails && <AccountInfo />}
       </div>
     </main>
