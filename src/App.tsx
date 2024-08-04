@@ -1,7 +1,8 @@
 import { Info, NGN } from "./components/svgs";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Button } from "./components";
-
+import Check from "./assets/check.png";
+import Frame from "./assets/frame.png";
 function App() {
   const [amount, setAmount] = useState<number>(30000);
   const [showAccountDetails, setShowAccountDetails] = useState<boolean>(false);
@@ -15,17 +16,17 @@ function App() {
   };
 
   const handleShowDetails = () => {
-    setShowAccountDetails((prev) => prev);
+    setShowAccountDetails((prev) => !prev);
   };
 
   return (
-    <main className="animate-fade-in relative min-h-[100vh] flex flex-col items-center justify-center">
-      <div className="flex flex-col gap-[30px] justify-center bg-white shadow-neutral-800 drop-shadow-lg rounded-[32px] min-w-[510px] p-[30px]">
+    <main className="animate-fade-in relative min-h-[100vh] flex flex-col items-center px-3 md:px-10 justify-center">
+      <div className="flex flex-col gap-[30px] justify-center bg-white shadow-neutral-800 drop-shadow-lg rounded-[32px] max-w-[510px] p-3 md:p-[30px]">
         <header>
-          <h3 className="text-[#1D2329] font-semibold text-[24px]">
+          <h3 className="text-[#1D2329] font-semibold text-[32px] md:text-[24px]">
             Send Me Money
           </h3>
-          <p className="text-[#586283] max-w-[450px] font-normal leading-[24px] text-base">
+          <p className="text-[#586283] max-w-[450px] font-normal leading-[24px] text-sm md:text-base">
             Sending me money is as fast as anything. But help my life abeg make
             I fit chop.
           </p>
@@ -33,7 +34,7 @@ function App() {
 
         {/* amount input */}
         <form
-          className="border border-[#F0F2F5] bg-white rounded-[24px] flex flex-row items-center justify-between p-[30px]"
+          className="border border-[#F0F2F5] bg-white rounded-[24px] flex flex-row items-center justify-between p-[10px] md:p-[30px]"
           onSubmit={handleSubmit}
         >
           <fieldset>
@@ -43,7 +44,8 @@ function App() {
               onChange={handleChange}
               name="amount"
               id="amount"
-              className="outline-none w-full text-[#586283] font-semibold text-[32px] leading-[40.32px] "
+              min={100}
+              className="outline-none w-full text-[#586283] font-semibold text-[20px] md:text-[32px] leading-[40.32px] "
             />
           </fieldset>
 
@@ -71,7 +73,9 @@ function App() {
 
         {/* button */}
         <Button onClick={handleShowDetails}>Send now</Button>
-        {showAccountDetails && <AccountInfo />}
+        {showAccountDetails && (
+          <AccountInfo setShowAccountDetails={setShowAccountDetails} />
+        )}
       </div>
     </main>
   );
@@ -81,28 +85,57 @@ export default App;
 // interface AccountInfoProps {
 //   onClick
 
-function AccountInfo() {
+function AccountInfo({
+  setShowAccountDetails,
+}: {
+  setShowAccountDetails: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   return (
-    <section className="absolute inset-0 animate-slide-up min-h-[100vh]- bg-slate-100 flex flex-col items-center justify-center">
-      <div className="flex flex-col gap-[30px] justify-center bg-white shadow-neutral-800 drop-shadow-lg rounded-[32px] min-w-[510px] p-[30px]">
-        <header className="mx-[30px] rounded-[12px] w-full ">
+    <section className="absolute w-full max-w-[510px] rounded-[32px] inset-0 animate-slide-up max-h-[450px] bg-red-100 flex flex-col items-center justify-center">
+      <div className="flex flex-col  justify-center bg-white shadow-neutral-800 drop-shasadow-lg rounded-[32px] w-full h-full p-3 md:p-[30px]">
+        <header className=" mx-auto flex justify-center mb-[30px] rounded-[12px] w-full ">
           <figure>
-            <img
-              src="/bg.svg"
-              className="rounded-t-[12px] "
-              alt="styled
-  _bg"
-            />
-          </figure>
-          <figure>
-            <img
-              src="/icon.png"
-              alt="icon"
-              className="relative -top-10 left-2"
-              draggable={false}
-            />
+            <img src={Frame} className=" object-cover " alt="" />
           </figure>
         </header>
+        <div className="mb-5 w-full  sm:min-w-[450px] mx-auto flex justify-between items-center">
+          <p className="  text-[##586283] font-normal text-[16px]  leading-[24px] ">
+            Bank Name:
+          </p>
+          <p className="text-[#1D2329] font-medium  text-[16px]  leading-[24px] ">
+            {" "}
+            PayCom (Opay)
+          </p>
+        </div>
+        <div className=" mb-5 w-full  sm:min-w-[450px] mx-auto flex justify-between items-center">
+          <p className=" text-[##586283] font-normal text-[16px]  leading-[24px] ">
+            Bank Name:
+          </p>
+          <p className="text-[#1D2329] font-medium  text-[16px]  leading-[24px] ">
+            {" "}
+            PayCom (Opay)
+          </p>
+        </div>
+        <div className=" mb-5 w-full  sm:min-w-[450px] mx-auto flex justify-between items-center">
+          <p className=" text-[##586283] font-normal text-[16px]  leading-[24px] ">
+            Bank Name:
+          </p>
+          <p className="text-[#1D2329] font-medium  text-[16px]  leading-[24px] ">
+            {" "}
+            PayCom (Opay)
+          </p>
+        </div>
+        <div className="max-w-[450px] mx-auto flex w-full gap-5 justify-between">
+          <button className=" py-2.5 md:py-5 flex-1 flex justify-center items-center text-white gap-2 rounded-[16px] bg-[#FE7122]">
+            Sent ? <img src={Check} alt="" />{" "}
+          </button>
+          <button
+            onClick={() => setShowAccountDetails(false)}
+            className=" text-white rounded-[16px]  py-2.5 md:py-5 flex-1 bg-[#141414]"
+          >
+            Close
+          </button>
+        </div>
       </div>
     </section>
   );
