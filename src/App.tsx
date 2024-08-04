@@ -3,8 +3,10 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { Button } from "./components";
 import Check from "./assets/check.png";
 import Frame from "./assets/frame.png";
+import ConfettiExplosion from "react-confetti-explosion";
 function App() {
   const [amount, setAmount] = useState<number>(30000);
+  const [isExploding, setIsExploding] = useState(false);
   const [showAccountDetails, setShowAccountDetails] = useState<boolean>(false);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -21,6 +23,7 @@ function App() {
 
   return (
     <main className="animate-fade-in relative min-h-[100vh] flex flex-col items-center px-3 md:px-10 justify-center">
+      {isExploding && <ConfettiExplosion />}
       <div className="flex flex-col gap-[30px] justify-center bg-white shadow-neutral-800 drop-shadow-lg rounded-[32px] max-w-[510px] p-3 md:p-[30px]">
         <header>
           <h3 className="text-[#1D2329] font-semibold text-[32px] md:text-[24px]">
@@ -74,7 +77,10 @@ function App() {
         {/* button */}
         <Button onClick={handleShowDetails}>Send now</Button>
         {showAccountDetails && (
-          <AccountInfo setShowAccountDetails={setShowAccountDetails} />
+          <AccountInfo
+            setIsExploding={setIsExploding}
+            setShowAccountDetails={setShowAccountDetails}
+          />
         )}
       </div>
     </main>
@@ -87,8 +93,10 @@ export default App;
 
 function AccountInfo({
   setShowAccountDetails,
+  setIsExploding,
 }: {
   setShowAccountDetails: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsExploding: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   return (
     <section className="absolute w-full max-w-[510px] rounded-[32px] inset-0 animate-slide-up max-h-[450px] bg-red-100 flex flex-col items-center justify-center">
@@ -126,7 +134,10 @@ function AccountInfo({
           </p>
         </div>
         <div className="max-w-[450px] mx-auto flex w-full gap-5 justify-between">
-          <button className=" py-2.5 md:py-5 flex-1 flex justify-center items-center text-white gap-2 rounded-[16px] bg-[#FE7122]">
+          <button
+            onClick={() => setIsExploding(true)}
+            className=" py-2.5 md:py-5 flex-1 flex justify-center items-center text-white gap-2 rounded-[16px] bg-[#FE7122]"
+          >
             Sent ? <img src={Check} alt="" />{" "}
           </button>
           <button
