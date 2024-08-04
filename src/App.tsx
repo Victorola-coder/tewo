@@ -30,8 +30,8 @@ function App() {
             Send Me Money
           </h3>
           <p className="text-[#586283] max-w-[450px] font-normal leading-[24px] text-sm md:text-base">
-            Sending me money is as fast as anything. But help my life abeg make
-            I fit chop.
+            Sending me money is as fast as anything, but help my life abeg make
+            I fit chop. Sapa wan finish me.🥲
           </p>
         </header>
 
@@ -117,20 +117,20 @@ function AccountInfo({
         </div>
         <div className=" mb-5 w-full  sm:min-w-[450px] mx-auto flex justify-between items-center">
           <p className=" text-[##586283] font-normal text-[16px]  leading-[24px] ">
-            Bank Name:
+            Account Number:
           </p>
           <p className="text-[#1D2329] font-medium  text-[16px]  leading-[24px] ">
-            {" "}
-            PayCom (Opay)
+          
+            9075789680
           </p>
         </div>
         <div className=" mb-5 w-full  sm:min-w-[450px] mx-auto flex justify-between items-center">
           <p className=" text-[##586283] font-normal text-[16px]  leading-[24px] ">
-            Bank Name:
+         Account Name:
           </p>
           <p className="text-[#1D2329] font-medium  text-[16px]  leading-[24px] ">
             {" "}
-            PayCom (Opay)
+            Victor Olatunji
           </p>
         </div>
         <div className="max-w-[450px] mx-auto flex w-full gap-5 justify-between">
