@@ -78,6 +78,7 @@ function App() {
         <Button onClick={handleShowDetails}>Send now</Button>
         {showAccountDetails && (
           <AccountInfo
+            isExploding={isExploding}
             setIsExploding={setIsExploding}
             setShowAccountDetails={setShowAccountDetails}
           />
@@ -92,12 +93,22 @@ export default App;
 //   onClick
 
 function AccountInfo({
+  isExploding,
   setShowAccountDetails,
   setIsExploding,
 }: {
+  isExploding: boolean;
   setShowAccountDetails: React.Dispatch<React.SetStateAction<boolean>>;
   setIsExploding: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  if (isExploding)
+    return (
+      <section className="absolute w-full max-w-[510px] rounded-[32px] inset-0 animate-slide-up max-h-[450px] bg-red-100 flex flex-col items-center justify-center">
+        <div className="flex flex-col  justify-center bg-white shadow-neutral-800 drop-shasadow-lg rounded-[32px] w-full h-full p-3 md:p-[30px]">
+          <h1 className=" text-center text-4xl">Thanks alot 🤗🙂😍</h1>
+        </div>
+      </section>
+    );
   return (
     <section className="absolute w-full max-w-[510px] rounded-[32px] inset-0 animate-slide-up max-h-[450px] bg-red-100 flex flex-col items-center justify-center">
       <div className="flex flex-col  justify-center bg-white shadow-neutral-800 drop-shasadow-lg rounded-[32px] w-full h-full p-3 md:p-[30px]">
@@ -120,13 +131,12 @@ function AccountInfo({
             Account Number:
           </p>
           <p className="text-[#1D2329] font-medium  text-[16px]  leading-[24px] ">
-          
             9075789680
           </p>
         </div>
         <div className=" mb-5 w-full  sm:min-w-[450px] mx-auto flex justify-between items-center">
           <p className=" text-[##586283] font-normal text-[16px]  leading-[24px] ">
-         Account Name:
+            Account Name:
           </p>
           <p className="text-[#1D2329] font-medium  text-[16px]  leading-[24px] ">
             {" "}
