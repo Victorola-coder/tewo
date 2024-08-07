@@ -47,7 +47,7 @@ function App() {
               name="amount"
               id="amount"
               min={100}
-              readonly
+              readOnly
               className="outline-none w-full text-[#586283] font-semibold text-[20px] md:text-[32px] leading-[40.32px] "
             />
           </fieldset>
