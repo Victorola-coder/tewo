@@ -1,3 +1,6 @@
+import Frame from "../assets/frame.png";
+import Check from "../assets/check.png";
+
 export default function AccountInfo({
   isExploding,
   setShowAccountDetails,
