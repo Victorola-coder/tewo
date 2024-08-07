@@ -1,9 +1,10 @@
-import { Info, NGN } from "./components/svgs";
-import { ChangeEvent, FormEvent, useState } from "react";
-import { Button } from "./components";
-import Check from "./assets/check.png";
 import Frame from "./assets/frame.png";
+import Check from "./assets/check.png";
+import { Button, AccountInfo } from "./components";
+import { Info, NGN } from "./components/svgs";
 import ConfettiExplosion from "react-confetti-explosion";
+import { ChangeEvent, FormEvent, useState } from "react";
+
 function App() {
   const [amount, setAmount] = useState<number>(30000);
   const [isExploding, setIsExploding] = useState(false);
