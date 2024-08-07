@@ -1,4 +1,4 @@
-export function AccountInfo({
+export default function AccountInfo({
   isExploding,
   setShowAccountDetails,
   setIsExploding,
