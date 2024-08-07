@@ -1,7 +1,5 @@
-import Frame from "./assets/frame.png";
-import Check from "./assets/check.png";
-import { Button, AccountInfo } from "./components";
 import { Info, NGN } from "./components/svgs";
+import { Button, AccountInfo } from "./components";
 import ConfettiExplosion from "react-confetti-explosion";
 import { ChangeEvent, FormEvent, useState } from "react";
 
