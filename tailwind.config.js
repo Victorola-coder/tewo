@@ -65,6 +65,7 @@ export default {
         one: "0px 4px 4px -4px rgba(12, 12, 13, 0.08)",
         two: "0px 16px 16px -8px rgba(12, 12, 13, 0.10)",
         three: "0px -4px 10px 0px #00000033 inset",
+        four: "0px 4px 16px 0px rgba(0, 0, 0, 0.15), 0px 1px 15px 0px rgba(0, 0, 0, 0.20);",
       },
     },
   },

@@ -1,0 +1,32 @@
+ <header className="flex flex-col justify-center mb-[30px]_ rounded-[16px] h-[140px] w-[99%] shadow-four bg-white m-[5px]">
+          <div
+            className="bg-[#FFE6D8] w-full mx-[5px] h-[45px] relative"
+            style={{ borderRadius: "12px 12px 0px 0px" }}
+          >
+            <figure className="absolute top-[19px] left-[19.5px]">
+              <img
+                alt="user"
+                loading="lazy"
+                draggable={false}
+                className="rounded-[50px] size-[50px]"
+                src="https://randomuser.me/api/portraits/men/7.jpg"
+              />
+            </figure>
+          </div>
+
+          <div>
+            <p className="text-[#1D2329] text-base font-semibold tracking-tight leading-[20.16px] ">
+              ezemmuo.eth
+            </p>
+            <p></p>
+          </div>
+
+          {/* <figure>
+            <img
+              alt="frame"
+              src="/bles.png"
+              className="object-cover "
+              draggable={false}
+            />
+          </figure> */}
+        </header>
