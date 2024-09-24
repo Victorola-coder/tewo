@@ -4,7 +4,7 @@ import ConfettiExplosion from "react-confetti-explosion";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 function App() {
-  const [amount, setAmount] = useState<number>(30000);
+  const [amount, setAmount] = useState<number | string>("30,000");
   const [isExploding, setIsExploding] = useState(false);
   const [showAccountDetails, setShowAccountDetails] = useState<boolean>(false);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +21,7 @@ function App() {
   };
 
   return (
-    <main className="animate-fade-in relative min-h-[100vh] flex flex-col items-center px-3 md:px-10 justify-center">
+    <main className="animate- relative min-h-[100vh] flex flex-col items-center px-3 md:px-10 justify-center">
       {isExploding && <ConfettiExplosion />}
       <div className="flex flex-col gap-[30px] justify-center bg-white shadow-neutral-800 drop-shadow-lg rounded-[32px] max-w-[510px] p-3 md:p-[30px]">
         <header>
@@ -41,7 +41,7 @@ function App() {
         >
           <fieldset>
             <input
-              type="number"
+              type="number text"
               value={amount}
               onChange={handleChange}
               name="amount"
@@ -83,6 +83,57 @@ function App() {
             setShowAccountDetails={setShowAccountDetails}
           />
         )}
+      </div>
+
+      <div className="mx-auto text-center block mt-5 text-gray-400">
+        <p className="">
+          iDEa overtaken from &nbsp;
+          <span>
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-black"
+              href="https://x.com/dtechoracle"
+            >
+              Dtechoracle⚡️
+            </a>
+          </span>
+        </p>
+        <p className="">
+          built out of desperation and sapa by{" "}
+          <span>
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-black"
+              href="https://x.com/heyVickyJay"
+            >
+              Me,
+            </a>
+          </span>
+        </p>
+        <span>
+          <span>
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-black"
+              href="https://x.com/theezemmuo"
+            >
+              Ezemmuo
+            </a>
+            &nbsp;designed it!
+          </span>
+        </span>
+        <p className="text-center text-black">
+          star ⭐️
+          <a
+            href="https://github.com/victorola-coder/tewo"
+            className="text-[#FE7122]"
+          >
+            Repo
+          </a>
+        </p>
       </div>
     </main>
   );
