@@ -1,5 +1,4 @@
-import Frame from "../assets/frame.png";
-import Check from "../assets/check.png";
+import { toast, Toaster } from "sonner";
 
 export default function AccountInfo({
   isExploding,
@@ -23,7 +22,7 @@ export default function AccountInfo({
       <div className="flex flex-col  justify-center bg-white shadow-neutral-800 drop-shasadow-lg rounded-[32px] w-full h-full p-3 md:p-[30px]">
         <header className=" mx-auto flex justify-center mb-[30px] rounded-[12px] w-full ">
           <figure>
-            <img src={Frame} className=" object-cover " alt="" />
+            <img src="/frame.png" className=" object-cover " alt="" />
           </figure>
         </header>
         <div className="mb-5 w-full  sm:min-w-[450px] mx-auto flex justify-between items-center">
@@ -39,9 +38,17 @@ export default function AccountInfo({
           <p className=" text-[##586283] font-normal text-[16px]  leading-[24px] ">
             Account Number:
           </p>
-          <p className="text-[#1D2329] font-medium  text-[16px]  leading-[24px] ">
-            9075789680
-          </p>
+          <input
+            type="text"
+            value="9075789680"
+            readOnly
+            className="text-[#1D2329] font-medium text-[16px] leading-[24px] bg-transparent border-none outline-none cursor-pointer"
+            onClick={(e) => {
+              e.currentTarget.select();
+              navigator.clipboard.writeText(e.currentTarget.value);
+              toast("Account number copied to clipboard!");
+            }}
+          />
         </div>
         <div className=" mb-5 w-full  sm:min-w-[450px] mx-auto flex justify-between items-center">
           <p className=" text-[##586283] font-normal text-[16px]  leading-[24px] ">
@@ -57,7 +64,7 @@ export default function AccountInfo({
             onClick={() => setIsExploding(true)}
             className=" py-2.5 md:py-5 flex-1 flex justify-center items-center text-white gap-2 rounded-[16px] bg-[#FE7122]"
           >
-            Sent ? <img src={Check} alt="" />{" "}
+            Sent ? <img src="/check.png" alt="sent" />{" "}
           </button>
           <button
             onClick={() => setShowAccountDetails(false)}
@@ -67,6 +74,8 @@ export default function AccountInfo({
           </button>
         </div>
       </div>
+
+      <Toaster position="top-center" />
     </section>
   );
 }
